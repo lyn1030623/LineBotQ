@@ -171,7 +171,7 @@ def sendTextMessageToMe():
 def getNameEmojiMessage():
     lookUpStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     productId = "5ac21b4f031a6752fb806d59"
-    name = "Stacy"
+    name = "Gemma"
     message = dict()
     message["type"] = "text"
     message["text"] = "".join("$" for r in range(len(name)))
