@@ -170,19 +170,18 @@ def sendTextMessageToMe():
 
 def getNameEmojiMessage():
     lookUpStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    productId = "5ac21a8c040ab15980c9b43f"
-    name = "Gemma"
+    productId = "5ac21b4f031a6752fb806d59"
+    name = "Stacy"
     message = dict()
     message["type"] = "text"
     message["text"] = "".join("$" for r in range(len(name)))
     emojis_list = list()
-    #製作貼圖對應的碼(03是補零)
     for i, nChar in enumerate(name):
         emojis_list.append(
-            {
-             "index": i,
-             "productId": productId,
-             "emojiId": f"{lookUpStr.index(nChar) +1 :03}"
+            { 
+                "index": i,
+                "productId": productId,
+                "emojiId": f"{lookUpStr.index(nChar) +1 :03}"
             }
         )
     message["emojis"] = emojis_list
@@ -266,21 +265,22 @@ def getImageMessage(originalContentUrl):
 
 
 def replyMessage(payload):
-    response = requests.post(https://api.line.me/v2/bot/message/reply,
-                            headers=HEADER, data=json.dumps(payload))
+    response = requests.post('https://api.line.me/v2/bot/message/reply',
+                             headers=HEADER, data=json.dumps(payload))
+    
     print(response.text)
     return 'OK'
-
-
 def pushMessage(payload):
-    response = requests.post(https://api.line.me/v2/bot/message/push,
-                            headers=HEADER, data=json.dumps(payload))
+    response = requests.post('https://api.line.me/v2/bot/message/push',
+                             headers=HEADER, data=json.dumps(payload))
+    
     print(response.text)
     return 'OK'
 
 
 def getTotalSentMessageCount():
-    response = {}
+    response = requests.get('https://api.line.me/v2/bot/message/quota/consumption',
+                             headers=HEADER)
     print(response.text)
     return response.json()['totalUsage']
 
