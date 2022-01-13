@@ -260,6 +260,9 @@ def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.
 
 def getImageMessage(originalContentUrl):
     message = dict()
+    message["type"] = "image"
+    message["originalContentUrl"] = "https://github.com/lyn1030623/LineBotQ/blob/main/static/taipei_101.jpeg"
+    message["previewImageUrl"] = "https://github.com/lyn1030623/LineBotQ/blob/main/static/taipei_101.jpeg"
 
     return message
 
