@@ -229,7 +229,7 @@ def getPlayStickerMessage():
     message["packageId"] = "446"
     return message
 
-def getPlayStickerMessage():
+def getPlayStickerMessage1():
     message = dict()
     message["type"] = "sticker"
     message["stickerId"] = "1989"
